@@ -75,7 +75,7 @@ Insert them in the script:
 telegram_bot_token = "YOUR_TOKEN"
 chatID = "YOUR_CHAT_ID"
 
-## Useful resources 
+# Useful resources 
 🔹 pynput numpad issue explanation
 Stack Overflow: Detecting numpad keys with pynput keyboard
 https://stackoverflow.com/questions/58478060/detecting-numpad-keys-with-pynput-keyboard
