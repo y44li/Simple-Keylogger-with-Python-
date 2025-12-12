@@ -63,7 +63,7 @@ Reads content
 Sends it via Telegram
 Deletes the file
 
-## Sending Logs With Telegram
+# Sending Logs With Telegram
 
 To use Telegram reporting:
 Create a bot using @BotFather
