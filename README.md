@@ -1,4 +1,4 @@
-# Python Keylogger
+# keylogging-behavior-simulation
 
 This project is an **educational keylogging tool** built with Python.  
 It demonstrates how keystroke monitoring works internally, including:
