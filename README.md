@@ -48,7 +48,7 @@ with keyboard.Listener(on_press=OnPress):
 
 The script handles:
 key.char for printable keys
-key.vk for numpad keys (VK 96–105 → digits 0–9)
+key.vk for numpad keys (VK 96–105 --> digits 0–9)
 Key.* for special keys
 
 ## 3. Logging
